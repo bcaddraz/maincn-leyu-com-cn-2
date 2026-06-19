@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bcaddraz.github.io/maincn-leyu-com-cn-2/sitemap.xml
