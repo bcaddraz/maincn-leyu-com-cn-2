@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 你的运动陪伴</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background-color: #f7f8fa;
+      color: #1f2937;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    /* 深色头图 —— 杂志感横幅 */
+    .hero {
+      background: linear-gradient(145deg, #0b0e14 0%, #1c2636 100%);
+      padding: 5rem 1.5rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 52vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -20%; left: -10%;
+      width: 60%; height: 80%;
+      background: radial-gradient(circle at 30% 40%, rgba(66, 133, 244, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -10%; right: -5%;
+      width: 50%; height: 60%;
+      background: radial-gradient(circle at 70% 60%, rgba(255, 183, 77, 0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #eceef2;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 strong {
+      font-weight: 600;
+      color: #f5c542;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #bcc4d0;
+      max-width: 600px;
+      margin: 1.2rem auto 0;
+      letter-spacing: 0.3px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 浅色正文区 */
+    .main-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* 三段自然介绍 + 卡片风格 */
+    .section-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.01);
+      transition: box-shadow 0.2s;
+      border: 1px solid #edf0f5;
+    }
+
+    .section-card:hover {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-card h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #111827;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f5c542;
+      padding-left: 1rem;
+    }
+
+    .section-card p {
+      font-size: 1.025rem;
+      margin-bottom: 1rem;
+      color: #3b4658;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .accent-link {
+      color: #1f5fcf;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .accent-link:hover {
+      color: #0b3c8a;
+      border-bottom: 1px solid #1f5fcf;
+    }
+
+    /* 页尾访问提示 —— 优雅小字 + 按钮感 */
+    .footer-note {
+      margin-top: 3.5rem;
+      padding: 1.8rem 2rem;
+      background: #f0f2f6;
+      border-radius: 40px;
+      text-align: center;
+      border: 1px solid #e2e6ed;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      color: #2a3447;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-note .cta-text {
+      font-size: 1.1rem;
+      letter-spacing: 0.2px;
+    }
+
+    .footer-note .cta-text a {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1f5fcf;
+      text-decoration: none;
+      border-bottom: 2px solid #f5c542;
+      padding-bottom: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .footer-note .cta-text a:hover {
+      background: #f5c54220;
+      border-bottom-color: #1f5fcf;
+    }
+
+    .footnote-divider {
+      width: 50px;
+      height: 2px;
+      background: #d0d6df;
+      margin: 0.5rem auto 1rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 640px) {
+      .hero { padding: 3.5rem 1rem 2.8rem; min-height: 40vh; }
+      .hero h1 { font-size: 2.2rem; }
+      .section-card { padding: 1.6rem 1.2rem; }
+      .section-card h2 { font-size: 1.35rem; }
+      .footer-note { padding: 1.4rem 1rem; }
+    }
+
+    @media (min-width: 768px) {
+      .section-card { padding: 2.8rem 3rem; }
+    }
+
+    /* 小点缀 —— 隐藏创作种子仅作变化源 */
+    .sig-seed { display: none; }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1><strong>MK体育</strong><br>再次相遇</h1>
+  <p class="sub">收藏一个角落，让运动日常不迷路</p>
+</header>
+
+<main class="main-content">
+
+  <!-- 第一段：从再次访问说起 -->
+  <article class="section-card">
+    <h2>当浏览器标签页关闭之后</h2>
+    <p>
+      你是否也经历过这样的时刻：偶然发现一个对味的体育资讯站，匆匆浏览几页，转身就忘了地址。下一次想再找回来，却怎么也搜不到当时的入口。<strong>MK体育</strong> 想成为你书签栏里那个一直亮着的名字——不用费力记忆，只需一次收藏，随时都能回到熟悉的界面。
+    </p>
+    <p>
+      所以，见到老朋友一样，把 <a href="https://home--mksports.com" class="accent-link">MK体育</a> 放进收藏夹吧。下次想看赛事动态或运动故事，直接点开就好，不必从头搜索。
+    </p>
+  </article>
+
+  <!-- 第二段：收藏与持续关注 -->
+  <article class="section-card">
+    <h2>收藏的不只是链接</h2>
+    <p>
+      我们理解，收藏夹里躺着的每个网址都代表一份“之后再看”的期待。MK体育 的内容更新不算密集，但每一期都经过筛选：从训练笔记到运动生活，从装备简评到赛事札记，不制造信息焦虑，只希望在你打开时提供几分钟的踏实阅读。
+    </p>
+    <p>
+      持续关注，也不是每天推送消息轰炸。你可以在方便的时候回来看看，或许会发现一个之前没注意的专题，或是一篇让人会心一笑的随笔。保持一种松散的连接，就像和老朋友偶尔打个招呼。
+    </p>
+    <p>
+      如果你还没收藏，现在不妨试试：<a href="https://home--mksports.com" class="accent-link">MK体育</a> 的主页一直在这里，等你再次光临。
+    </p>
+  </article>
+
+  <!-- 第三段：场景与陪伴感（融入FAQ风格摘要）-->
+  <article class="section-card">
+    <h2>一些你可能想问的</h2>
+    <p><strong>Q：MK体育 适合什么样的人？</strong><br>
+        A：适合喜欢运动但不想被夸张标题裹挟的人。无论你热衷跑步、骑行、球类，还是单纯欣赏运动美学，这里都有一些不赶时间的记录。
+    </p>
+    <p><strong>Q：内容更新频繁吗？</strong><br>
+        A：不追求日更。我们更在意每篇文章的完成度，有时一周两三次，有时隔久一些。正因如此，每次回来都可能发现新的视角。
+    </p>
+    <p><strong>Q：为什么强调“收藏”和“再次访问”？</strong><br>
+        A：因为好的站点值得被记住。MK体育 没有铺天盖地的推广，它更像一个安静的房间——门一直开着，但需要你知道路。收藏就是那条小路。
+    </p>
+    <p style="margin-top: 1.2rem; font-style: italic; color: #5a687d;">
+      想了解更多？直接去 <a href="https://home--mksports.com" class="accent-link">MK体育</a> 逛逛吧。
+    </p>
+  </article>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-note">
+    <div class="footnote-divider"></div>
+    <p class="cta-text">
+      下次想找点运动内容读，记得这里有个 <a href="https://home--mksports.com">MK体育</a>。
+    </p>
+    <p>— 把页面加入书签，随时回来 —</p>
+  </div>
+
+  <!-- 隐藏的变化种子（仅用于风格微调，不显示） -->
+  <span class="sig-seed">6a52d7497c017c96</span>
+</main>
+
+</body>
+</html>
