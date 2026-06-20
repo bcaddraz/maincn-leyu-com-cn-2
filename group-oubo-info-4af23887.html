@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+    <title>欧博 · 简明产品指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f6f3ee;
+            color: #2d2a26;
+            font-family: 'Georgia', 'Times New Roman', 'Songti SC', 'SimSun', 'Noto Serif SC', serif;
+            line-height: 1.75;
+            padding: 2rem 1.25rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 760px;
+            width: 100%;
+            background: rgba(255, 252, 247, 0.7);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02), 0 1px 4px rgba(0,0,0,0.03);
+            backdrop-filter: blur(1px);
+        }
+
+        /* 标题区 — 简洁摘要 */
+        .guide-header {
+            border-bottom: 1px solid #d9d0c3;
+            padding-bottom: 1.6rem;
+            margin-bottom: 2rem;
+        }
+
+        .guide-header h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #2f2b26;
+            margin-bottom: 0.4rem;
+        }
+
+        .guide-header .byline {
+            font-size: 0.95rem;
+            color: #6c655b;
+            font-style: italic;
+            margin-top: 0.2rem;
+        }
+
+        .abstract {
+            background: #ede7de;
+            padding: 1.2rem 1.4rem;
+            border-left: 6px solid #b7aa98;
+            border-radius: 6px 12px 12px 6px;
+            margin: 1.2rem 0 1.8rem;
+            font-size: 0.98rem;
+            color: #3b3530;
+            line-height: 1.7;
+        }
+
+        .abstract strong {
+            font-weight: 600;
+            color: #25211d;
+        }
+
+        /* 亮色卡片 - 产品亮点 */
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .highlight-card {
+            flex: 1 1 200px;
+            background: #faf6f0;
+            border: 1px solid #ddd6cb;
+            padding: 1.2rem 1rem 1rem;
+            border-radius: 16px;
+            transition: box-shadow 0.2s;
+        }
+
+        .highlight-card:hover {
+            box-shadow: 0 4px 10px rgba(90, 75, 60, 0.05);
+        }
+
+        .highlight-card .tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #8d8274;
+            border-bottom: 1px dotted #cfc4b6;
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.6rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .highlight-card h3 {
+            font-weight: 500;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #322d27;
+        }
+
+        .highlight-card p {
+            font-size: 0.9rem;
+            color: #4f4841;
+        }
+
+        /* 使用建议 — 带引用的段落 */
+        .usage-note {
+            background: #f1ece4;
+            padding: 1.5rem 1.8rem;
+            border-radius: 30px 10px 30px 10px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .usage-note::before {
+            content: "📌";
+            position: absolute;
+            left: -0.6rem;
+            top: -0.4rem;
+            font-size: 1.6rem;
+        }
+
+        .usage-note h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #3f382f;
+        }
+
+        .usage-note p {
+            font-size: 0.96rem;
+            color: #3f3a33;
+        }
+
+        .usage-note .quote-symbol {
+            font-size: 2.2rem;
+            line-height: 1;
+            color: #b3a592;
+            float: left;
+            margin-right: 0.3rem;
+            margin-top: -0.1rem;
+        }
+
+        .usage-note .ref {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: #7a7064;
+            border-left: 2px solid #c7bbab;
+            padding-left: 0.8rem;
+        }
+
+        /* 提示框 — 可信访问说明 */
+        .advisory-box {
+            background: #e6dfd4;
+            border-left: 6px solid #a69682;
+            padding: 1.2rem 1.5rem 1rem;
+            border-radius: 0 14px 14px 0;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .advisory-box .advisory-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #2b2722;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .advisory-box p {
+            font-size: 0.94rem;
+            color: #3e3831;
+            margin-bottom: 0.2rem;
+        }
+
+        /* FAQ 摘要 — 简洁条目 */
+        .faq-mini {
+            margin: 2.2rem 0 1rem;
+            border-top: 1px dashed #cec3b5;
+            padding-top: 1.5rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px solid #e2d9cd;
+            padding-bottom: 0.4rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3d362f;
+            font-size: 0.98rem;
+            padding: 0.3rem 0;
+            list-style: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "›";
+            margin-right: 0.6rem;
+            color: #9b8d7b;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini .answer {
+            padding: 0.2rem 1.2rem 0.5rem 1.6rem;
+            font-size: 0.9rem;
+            color: #524a41;
+        }
+
+        /* 嵌入链接 */
+        .inline-link {
+            color: #6a5c47;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            text-decoration-color: #b8aa96;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #3b2f21;
+            text-decoration-color: #3b2f21;
+        }
+
+        /* 页脚节奏 */
+        .closing-note {
+            font-size: 0.85rem;
+            color: #7b7267;
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dcd3c7;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            body { padding: 1.2rem 0.8rem 3rem; }
+            .page-wrap { padding: 1.8rem 1rem; }
+            .guide-header h1 { font-size: 1.7rem; }
+            .highlight-grid { flex-direction: column; }
+            .highlight-card { flex: 1 1 auto; }
+            .usage-note { padding: 1.2rem; }
+            .advisory-box { padding: 1rem; }
+        }
+
+        @media (min-width: 900px) {
+            .page-wrap { padding: 3.2rem 3rem; }
+            .guide-header h1 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 摘要区域 -->
+    <div class="guide-header">
+        <h1>欧博 · 产品说明</h1>
+        <div class="byline">一份简明指南 · 面向使用者与评估者</div>
+    </div>
+
+    <div class="abstract">
+        <strong>欧博</strong> 所提供的数字服务，适用于需要获取特定资讯或服务的用户。本页以产品功能视角，
+        梳理核心特点、常规使用思路与必要的访问提醒，帮助读者快速建立认知框架。
+    </div>
+
+    <!-- 亮点卡片 -->
+    <div class="highlight-grid">
+        <div class="highlight-card">
+            <div class="tag">特点</div>
+            <h3>信息聚合</h3>
+            <p>围绕特定主题整合可公开获取的资源与入口，降低搜寻成本。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="tag">特点</div>
+            <h3>结构导航</h3>
+            <p>以清晰的分类引导用户定位所需模块，避免信息过载。</p>
+        </div>
+        <div class="highlight-card">
+            <div class="tag">特点</div>
+            <h3>轻量交互</h3>
+            <p>界面侧重阅读与选择，减少非必要跳转，专注内容本身。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 引用 -->
+    <div class="usage-note">
+        <h2>使用建议 · 场景与习惯</h2>
+        <p><span class="quote-symbol">“</span>初次接触时，建议先浏览主要栏目，了解信息组织方式。日常使用中，
+        可将 <a href="https://group-oubo.com" class="inline-link">欧博</a> 视为一个固定参考节点，结合自身需求重复访问。
+        若在移动设备上阅读，横屏或分屏模式可能更适合长列表浏览。</p>
+        <span class="ref">—— 基于典型用户反馈整理</span>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="advisory-box">
+        <div class="advisory-title">⏺ 访问说明</div>
+        <p>1. 平台内容均来自合规渠道，不包含任何形式的诱导或隐蔽跳转。</p>
+        <p>2. 建议在网络环境稳定的情况下访问，部分资源加载依赖外部链接，可能存在延迟。</p>
+        <p>3. 平台不收集访客个人数据，亦不要求注册或登录即可浏览主要信息。</p>
+        <p style="margin-top:0.4rem;">4. 如遇到内容异常，请检查网络连接或稍后重试；持续异常可向相关方反馈。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>欧博主要面向哪些用户？</summary>
+            <div class="answer">面向对特定领域资讯有需求的个人用户，以及希望快速了解信息结构的评估者。无需专业知识即可上手。</div>
+        </details>
+        <details>
+            <summary>是否必须通过欧博才能获取相关资源？</summary>
+            <div class="answer">不是。该平台提供的链接与内容大多来自公开渠道，仅为用户提供聚合视角。用户也可通过其他方式直接搜索。</div>
+        </details>
+        <details>
+            <summary>平台会推送广告或商业推广吗？</summary>
+            <div class="answer">当前页面及关联的主要服务中不包含商业广告。内容组织以信息需求为优先，不涉及竞价或付费推荐。</div>
+        </details>
+    </div>
+
+    <!-- 结尾节奏 -->
+    <div class="closing-note">
+        —— 基于公开信息整理 · 内容保持克制与客观
+    </div>
+
+</div>
+</body>
+</html>
