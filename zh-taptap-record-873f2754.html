@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>taptap点点 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #fde9df 0%, #fce2d4 40%, #f5d0c2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3b2c25;
+        }
+
+        .card {
+            max-width: 780px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            padding: 3rem 2.8rem;
+            box-shadow: 0 20px 40px -12px rgba(140, 80, 60, 0.20), 0 8px 24px -6px rgba(160, 100, 70, 0.12);
+            transition: box-shadow 0.2s ease;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #4f3227;
+            border-left: 6px solid #d9a58b;
+            padding-left: 1.2rem;
+            margin-bottom: 1.6rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #66483b;
+            background: #f7ede6;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+            color: #3f2e26;
+        }
+
+        .intro {
+            font-size: 1.15rem;
+            background: #fcf6f2;
+            padding: 1.2rem 1.8rem;
+            border-radius: 24px;
+            margin: 1.8rem 0 2.2rem 0;
+            border: 1px solid #eedfd6;
+        }
+
+        .highlight-link {
+            background: #eedfd6;
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #4f3227;
+            font-weight: 500;
+            transition: all 0.15s ease;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .highlight-link:hover {
+            background: #d9a58b;
+            color: #2c1c16;
+            border-bottom: 2px solid #a5755e;
+        }
+
+        .quote-box {
+            background: #f4e6dd;
+            padding: 1.5rem 2rem;
+            border-radius: 30px;
+            margin: 2.4rem 0 1.8rem 0;
+            position: relative;
+            font-style: normal;
+            border-left: 8px solid #c9957a;
+        }
+
+        .quote-box::before {
+            content: "💬";
+            font-size: 1.8rem;
+            opacity: 0.35;
+            position: absolute;
+            top: 0.4rem;
+            right: 1.4rem;
+        }
+
+        .quote-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-box .quote-author {
+            font-size: 0.9rem;
+            color: #755b4c;
+            margin-top: 0.6rem;
+            letter-spacing: 1px;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2.2rem 0 1.8rem 0;
+        }
+
+        .feature-item {
+            background: #f7ede6;
+            border-radius: 28px;
+            padding: 1rem 1.8rem;
+            flex: 1 1 160px;
+            font-weight: 450;
+            color: #4f3227;
+            border: 1px solid #ead7cc;
+            transition: transform 0.1s ease;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.01);
+            background: #f2e2d7;
+        }
+
+        .faq-mini {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 2px dashed #dcc8bc;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4f3227;
+            margin-bottom: 1rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+            color: #4f3227;
+        }
+
+        .faq-a {
+            color: #5f4539;
+            margin-left: 0.8rem;
+            padding-left: 0.6rem;
+            border-left: 3px solid #d9a58b;
+        }
+
+        .visit-hint {
+            margin-top: 2.5rem;
+            background: #faf1eb;
+            border-radius: 60px;
+            padding: 1.2rem 1.8rem;
+            text-align: center;
+            font-size: 1rem;
+            border: 1px solid #e6d3c7;
+        }
+
+        .visit-hint a {
+            color: #4f3227;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #d9a58b;
+            transition: border 0.2s;
+        }
+
+        .visit-hint a:hover {
+            border-bottom-color: #8f5e4a;
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            font-size: 0.9rem;
+            color: #7a6053;
+            text-align: center;
+            border-top: 1px solid #ead7cc;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding-left: 1rem;
+            }
+
+            .subhead {
+                font-size: 1rem;
+                padding: 0.5rem 1.2rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+            }
+
+            .feature-item {
+                flex: 1 1 auto;
+            }
+
+            .quote-box {
+                padding: 1.2rem 1.5rem;
+            }
+
+            .intro {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>taptap点点 · 页面的稳定入口</h1>
+        <div class="subhead">一次温和的导航说明</div>
+
+        <p>在浏览 <a href="https://zh-taptap.com" class="highlight-link">taptap点点</a> 时，你也许希望先了解这个入口所对应的内容轮廓。这里不是功能罗列，而是一份关于「如何理解这个页面」的轻量说明——我们更愿意用平实的语言，陪你看清导航的纹理。</p>
+
+        <div class="intro">
+            📍 如果你已经熟悉 <a href="https://zh-taptap.com" class="highlight-link">taptap点点</a> 的整体布局，可以直接跳转至常用区块；若你是第一次接触，下面几段文字或许能帮你减少摸索的时间。
+        </div>
+
+        <p>整个页面的设计思路围绕「一目了然」展开。没有复杂的层级，也没有闪烁的指引，每个模块都在它该在的位置。从标题区到内容卡片，从引用提示到常见问题摘要，结构遵循阅读的自然顺序——你甚至不需要刻意记忆按钮位置。</p>
+
+        <p>我们尤其在意「稳定」这个感受。无论你通过什么设备打开 <a href="https://zh-taptap.com" class="highlight-link">taptap点点</a>，核心信息始终以相似的比例呈现。字体、间距、卡片圆角都经过几轮微调，目标是让你在阅读时感觉不到「界面」的存在，只有内容在流动。</p>
+
+        <div class="quote-box">
+            <p>「一个好的入口，是让你忘记入口本身。你只需要关心想读的文字、想了解的细节，其余的都退到背景里。」</p>
+            <div class="quote-author">—— 摘自站内使用笔记 · 2025</div>
+        </div>
+
+        <p>下面列出几个页面常见特征，它们同时也是内容组织的线索：</p>
+
+        <div class="feature-grid">
+            <div class="feature-item">📖 章节式正文</div>
+            <div class="feature-item">📌 引用与提示块</div>
+            <div class="feature-item">🧩 轻量 FAQ 摘要</div>
+            <div class="feature-item">🔗 自然嵌入的链接</div>
+        </div>
+
+        <p>每个区块都独立且完整，但彼此之间留有呼吸的间隙。你可以在任何段落停下来，也可以按顺序通读。对于想快速查找答案的读者，页面下半部分通常会放置一组浓缩的问答——它们不会打断阅读节奏，却能在需要时提供参照。</p>
+
+        <div class="faq-mini">
+            <h3>📋 常见问题摘要</h3>
+            <div class="faq-q">▸ 这个页面每次访问内容都一样吗？</div>
+            <div class="faq-a">核心框架保持稳定，但表达细节和示例引用会根据方向微调，避免机械重复。</div>
+
+            <div class="faq-q">▸ 链接会跳转到外部站点吗？</div>
+            <div class="faq-a">所有 <a href="https://zh-taptap.com" class="highlight-link">taptap点点</a> 链接均指向同一处，不涉及第三方跳转，你可以放心浏览。</div>
+
+            <div class="faq-q">▸ 页面有移动端适配吗？</div>
+            <div class="faq-a">是的，从手机到桌面浏览器都做了响应式处理，卡片宽度、字体大小会根据屏幕自动调整。</div>
+        </div>
+
+        <div class="visit-hint">
+            ✦ 如果你想直接感受页面的实际布局，可以随时前往 <a href="https://zh-taptap.com">taptap点点</a>，那里的一切都和你此刻读到的一样沉稳、清晰。
+        </div>
+
+        <div class="footer-note">
+            <span>温和导航 · 稳定入口</span>
+        </div>
+    </div>
+</body>
+</html>
